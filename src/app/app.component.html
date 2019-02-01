@@ -1,0 +1,3 @@
+<h1>SPA</h1>
+<image *ngFor="let image of images" src="{{ image.url }}" id="{{ image.id }}"></image>
+<button *ngIf="!isOver" (click)="loadMore()">Загрузить еще</button>
