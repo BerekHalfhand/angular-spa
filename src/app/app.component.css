@@ -1,3 +1,14 @@
-p {
-  font-family: Lato;
+header {
+	text-align: center;
+	width: 100%;
+	overflow: hidden;
+	border-radius: 0 0 85% 85% / 30%;
+  background:rgb(180, 222, 250);
+  box-shadow: 0 10px 8px #888888;
+  margin-bottom: 13px;
+}
+
+input[type="number"] {
+  width: 40px;
+  margin-left: 5px;
 }

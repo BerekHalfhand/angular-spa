@@ -8,30 +8,24 @@ import { Image } from '../image';
   styleUrls: [ './app.component.css' ]
 })
 export class AppComponent implements OnInit {
-  images: Image[];
-  start: number;
-  limit: number;
-  isOver: boolean;
+  images: Image[] = [];
+  start:  number  = 0; //set it to 4980 to see the button disappear after the second click
+  limit:  number  = 9;
+  isOver: boolean = false;
 
-  constructor(private imageService: ImageService) {
-    this.start = 0;   //set it to 4980 to see the button disappear after the second click
-    this.limit = 9;
-    this.isOver = false;
-  }
+  constructor(private imageService: ImageService) { }
 
   ngOnInit() {
-    this
-      .imageService
-      .getImages(this.start, this.limit)
-      .subscribe((data: Image[]) => {
-        this.images = data;
-        this.start += this.limit;
-    });
+    this.loadMore();
   }
 
   loadMore() {
     let initialLength = this.images.length;
-    
+
+    // limit validation alone isn't worth a separate directive at this point, so
+    if (!this.limit || this.limit < 0 || this.limit > 50)
+      this.limit = 9;
+
     this
       .imageService
       .getImages(this.start, this.limit)
