@@ -1,7 +1,7 @@
 <div fxLayout="column" fxFlexFill>
   <header><h1>Angular SPA</h1></header>
-  <section class=content>
-    <article fxLayout="row wrap" fxFlexFill fxLayoutAlign="space-evenly" fxLayoutGap="5px grid" fxLayoutGap.xs="0">
+  <section class="content">
+    <article class="items" fxLayout="row wrap" fxLayoutAlign="space-evenly start" fxLayoutGap.xs="0px" fxLayoutGap="5px grid">
       <image *ngFor="let image of images"
               id="{{ image.id }}"
               src="{{ image.url }}"
